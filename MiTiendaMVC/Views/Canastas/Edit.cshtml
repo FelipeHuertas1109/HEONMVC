@@ -1,0 +1,39 @@
+@model MiTiendaMVC.Models.ViewModels.CanastaViewModel
+
+@{
+    ViewData["Title"] = "Editar Canasta";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="CanastaId" />
+
+    <div class="form-group">
+        <label asp-for="ClienteId"></label>
+        <select asp-for="ClienteId" class="form-control"
+                asp-items="ViewBag.ClienteId">
+            <option value="">-- Selecciona un cliente --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProductosSeleccionados"></label>
+        <select asp-for="ProductosSeleccionados" class="form-control"
+                asp-items="Model.ProductosList" multiple>
+        </select>
+        <small class="form-text text-muted">
+            Mantén Ctrl (o Cmd) para seleccionar varios productos.
+        </small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
