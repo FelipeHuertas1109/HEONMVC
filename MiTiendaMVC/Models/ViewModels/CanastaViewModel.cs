@@ -14,8 +14,7 @@ namespace MiTiendaMVC.Models.ViewModels
         [Required(ErrorMessage = "Selecciona al menos un producto.")]
         public int[] ProductosSeleccionados { get; set; } = Array.Empty<int>();
 
-        // ✨  NO SE BINDERÁ DESDE EL FORM
-        [BindNever]                       // <─ agrega esto
+        [BindNever]                      
         public MultiSelectList? ProductosList { get; set; }
     }
 }
