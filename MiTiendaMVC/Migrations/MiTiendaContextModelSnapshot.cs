@@ -32,8 +32,8 @@ namespace MiTiendaMVC.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Total")
+                        .HasColumnType("int");
 
                     b.HasKey("CanastaId");
 
@@ -90,8 +90,8 @@ namespace MiTiendaMVC.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Precio")
+                        .HasColumnType("int");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");

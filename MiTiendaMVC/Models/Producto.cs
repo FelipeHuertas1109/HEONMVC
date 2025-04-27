@@ -13,7 +13,7 @@ public class Producto
 
     [Required]
     [DataType(DataType.Currency)]
-    public decimal Precio { get; set; }
+    public int Precio { get; set; }
 
     [StringLength(500)]
     public string Descripcion { get; set; } = string.Empty;

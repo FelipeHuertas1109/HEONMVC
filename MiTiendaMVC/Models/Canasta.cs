@@ -14,5 +14,5 @@ public class Canasta
     // Relación productos en la canasta
     public List<Producto> Productos { get; set; } = new();
 
-    public decimal Total { get; set; }
+    public int Total { get; set; }
 }

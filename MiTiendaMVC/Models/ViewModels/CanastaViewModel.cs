@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.Rendering;   // ← Este using es obligatorio
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations;
 
 namespace MiTiendaMVC.Models.ViewModels
 {
@@ -7,13 +8,14 @@ namespace MiTiendaMVC.Models.ViewModels
     {
         public int CanastaId { get; set; }
 
-        [Display(Name = "Cliente")]
+        [Required(ErrorMessage = "Debes seleccionar un cliente.")]
         public int ClienteId { get; set; }
 
-        [Display(Name = "Productos")]
-        public int[] ProductosSeleccionados { get; set; } = new int[0];
+        [Required(ErrorMessage = "Selecciona al menos un producto.")]
+        public int[] ProductosSeleccionados { get; set; } = Array.Empty<int>();
 
-        // Ahora MultiSelectList se reconoce
-        public MultiSelectList ProductosList { get; set; } = null!;
+        // ✨  NO SE BINDERÁ DESDE EL FORM
+        [BindNever]                       // <─ agrega esto
+        public MultiSelectList? ProductosList { get; set; }
     }
 }
